@@ -1,14 +1,39 @@
-# Autograding Example: Java
-This example project is written in Java, and tested with Gradle/JUnit.
+# 課題 10-2: 多態性
 
-### The assignment
-The tests are currently failing because of an output mismatch. Fixing the `System.out.println` in the main method will make the tests green.
+### 課題の説明
+課題10-1で使用したスライムクラスは、勇者にしか攻撃できない。
+Slimeクラスのattackメソッドを変更し、勇者と聖職者に攻撃をするプログラムを作成しなさい。
 
-### Setup command
-N/A
+### ProgA2.java (提出不要)
+```java
+public class ProgA2 {
 
-### Run command
-`gradle test`
+	public static void main(String arg[])
+	{
+		Hero hr = new Hero("工太", 100);
+		Cleric clr = new Cleric("ホーリー",15, 15);
+		Slime slm = new Slime('A');
+		hr.attack(slm);
+		clr.attack(slm);
+		slm.attack(hr);
+		slm.attack(clr);
+		slm.run();
+		clr.run();
+	}
+}
+```
 
-### Notes
-- The JDK is installed on GitHub Actions machines, so you're also able to directly invoke `javac`, `java`, or any other CLI command included in the JDK. 
+### 実行例
+```
+勇者工太は攻撃した！
+敵に５ポイントのダメージをあたえた！
+聖職者ホーリーは攻撃した！
+敵に1ポイントのダメージをあたえた！
+スライムAの攻撃！
+5のダメージでHPが95になった
+スライムAの攻撃！
+5のダメージでHPが10になった
+スライムAは逃げ出した！(HP:12)
+ホーリーは逃げ出した。
+最終HPは10でした。
+```
