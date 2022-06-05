@@ -1,7 +1,9 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 import java.io.*;
-
+/**
+ * @version (20220605)
+ **/
 public class SlimeTest {
     @Test
     public void testAttack()
@@ -15,7 +17,9 @@ public class SlimeTest {
         slm.attack(clr);
 
         // assertion
-        assertEquals(85, hr.hp);
-        assertEquals(15, clr.hp);
+        assertEquals(75, hr.hp, 
+            "Slimeクラスのインスタンスのattack()によるhpの変化が正しくありません!");//85->75
+        assertEquals(15, clr.hp, 
+            "Slimeクラスのインスタンスのattack()によるhpの変化が正しくありません!");
     }
 }
