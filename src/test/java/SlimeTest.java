@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import java.io.*;
 import java.lang.reflect.Method;
 /**
- * @version (20220605)
+ * @version (20220609)
  **/
 public class SlimeTest {
     @Test
