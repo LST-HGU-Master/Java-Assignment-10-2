@@ -1,6 +1,8 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.Test;
 import java.io.*;
+import java.lang.reflect.Method;
 /**
  * @version (20220605)
  **/
@@ -21,5 +23,32 @@ public class SlimeTest {
             "Slimeクラスのインスタンスのattack()によるhpの変化が正しくありません!");//85->75
         assertEquals(15, clr.hp, 
             "Slimeクラスのインスタンスのattack()によるhpの変化が正しくありません!");
+    }
+    
+    @Test
+    public void testAttackParameter()
+    {
+        try {
+            Slime slm = new Slime('A');
+            Method setName = slm.getClass().getMethod("attack", Hero.class);
+            if (setName != null) fail("Slimeクラスにattack(Hero 変数名)が定義されています!");
+        } catch ( Exception e) {
+            // Slime.attack(Hero) は定義されていないのでなにもしない
+        }
+        
+        try {
+            Slime slm = new Slime('A');
+            Method setName = slm.getClass().getMethod("attack", Cleric.class);
+            if (setName != null) fail("Slimeクラスにattack(Cleric 変数名)が定義されています!");
+        } catch ( Exception e) {
+            // Slime.attack(Cleric) は定義されていないのでなにもしない
+        }
+        
+        try {
+            Slime slm = new Slime('A');
+            Method setName = slm.getClass().getMethod("attack", Character.class);
+        } catch ( Exception e) {
+            fail("Slimeクラスのattackメソッドの引数リストが間違っています");
+        }
     }
 }
