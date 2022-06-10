@@ -4,7 +4,7 @@
 課題10-1で使用したスライムクラスは、勇者にしか攻撃できない。
 そこでHeroクラスとClericクラスが共にCharacterクラスを継承していることを利用してSlimeクラスのattackメソッドに変更を加えて、勇者と聖職者に攻撃をするプログラムProgA2.main()が動作するようにしなさい。
 
-### ProgA2.java (提出不要。このコードはSlim.attack()を正しく変更するまでは文法エラーとなる)
+### ProgA2.java (変更・提出不要。このコードはSlim.attack()を正しく変更するまでは文法エラーとなる)
 ```java
 public class ProgA2 {
 
