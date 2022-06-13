@@ -12,7 +12,7 @@ public class Slime
         System.out.println
                 ("スライム" + this.suffix + "は逃げ出した！(HP:"+this.hp+")");
     }
-
+    // 課題10-2としてattackメソッドに変更を加える
     public void attack(Hero h)
     {
         int damage = 5;
